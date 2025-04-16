@@ -1,0 +1,129 @@
+/* Importa a fonte e define estilos globais */
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: url('img/fundoprincipal.png') no-repeat center center fixed;
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: rgba(51, 0, 87, 0.5); /* Fundo roxo com transparência */
+}
+
+.navbar .logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2.5em;
+  color: #00ff00; 
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin-left: auto;
+}
+
+.nav-links li a {
+  font-size: 1.1em;
+  color: #00ff00;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #fff;
+}
+
+/* Seção Hero */
+.hero {
+  padding: 120px 20px;
+  background: rgba(0, 0, 0, 0.4); 
+}
+
+.hero h2 {
+  font-size: 2.8em;
+  margin-bottom: 20px;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.8);
+}
+
+.hero p {
+  font-size: 1.3em;
+  margin-bottom: 30px;
+}
+
+/* Seções Gerais (Sobre, Contato, etc.) */
+section {
+  padding: 60px 20px;
+  background: rgba(0, 0, 0, 0.3);
+  margin: 20px;
+  border-radius: 10px;
+}
+
+section h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+section p {
+  font-size: 1.2em;
+  line-height: 1.6;
+}
+
+/* Botões */
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #8e44ad;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #732d91;
+}
+
+/* Botão específico para voltar */
+.navbar a.btn.voltar {
+  font-size: 1em;
+}
+
+/* Footer */
+footer {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+footer p {
+  font-size: 1.1em;
+  margin: 0;
+}
+
+footer a {
+  color: #00ff00;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #fff;
+}
