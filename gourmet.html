@@ -1,43 +1,695 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Em breve</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Barca - Vikings Food</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="barca.css" />
+    <style>
+      /* -------------------------------
+         Definindo a fonte principal e o fundo
+      ------------------------------- */
+      body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
 
-    body {
-      height: 100vh;
-      background: linear-gradient(135deg, #111827, #1f2937);
-      color: white;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
+video.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
 
-    h1 {
-      font-size: 4rem;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% {
-        opacity: 1;
+     
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+        background: rgba(51, 0, 87, 0.5);
       }
-      50% {
-        opacity: 0.6;
+      .navbar .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: 'Bebas Neue', cursive;
+        font-size: 2.5em;
+        color: #00ff00;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
       }
-    }
-  </style>
-</head>
-<body>
-  <h1>Em breve novidades</h1>
-</body>
+      /* Botão Voltar */
+      .navbar a.btn.voltar {
+        font-size: 1em;
+        background: #8e44ad;
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background 0.3s ease;
+      }
+      .navbar a.btn.voltar:hover {
+        background: #732d91;
+      }
+      
+      /* 
+         Resumo do Pedido 
+     */
+      .resumo {
+        background-color: #800080; 
+        border: 2px solid #4caf50; 
+        padding: 20px;
+        margin-top: 30px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        color: #4caf50; /* letras verdes */
+      }
+      .resumo h3 {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+        text-align: center;
+        font-family: 'Bebas Neue', sans-serif;
+      }
+      .resumo p {
+        font-size: 1.1em;
+        margin-bottom: 10px;
+      }
+      .resumo p strong {
+        color: #fff; /* destaques em branco */
+      }
+      
+      /* 
+         Botão Finalizar Pedido
+      */
+      .btn {
+        background-color: #f39c12;
+        color: white;
+        padding: 15px 25px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1.1em;
+        width: 100%;
+        display: block;
+        margin-top: 15px;
+        text-align: center;
+        transition: background-color 0.3s ease;
+      }
+      .btn:hover {
+        background-color: #e67e22;
+      }
+      
+      /* 
+         Layout do Formulário
+       */
+      .menu-form {
+        display: flex;
+        flex-direction: column;
+        max-width: 800px;
+        margin: 0 auto;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 30px;
+        border-radius: 10px;
+      }
+      
+      fieldset {
+        border: none;
+        margin-bottom: 20px;
+      }
+      
+      legend h3 {
+        font-size: 1.8em;
+        color: #00ff00;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
+      }
+      
+      label {
+        font-size: 1.2em;
+        display: block;
+        margin-bottom: 10px;
+        color: #fff;
+      }
+      
+      select {
+        font-size: 1.2em;
+        padding: 10px;
+        width: 100%;
+        border-radius: 5px;
+        border: 1px solid #ddd;
+      }
+      
+      button.btn {
+        display: inline-block;
+        font-size: 1.2em;
+        background: #8e44ad;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        transition: background 0.3s ease;
+      }
+      
+      button.btn:hover {
+        background: #732d91;
+      }
+      
+      /* Tamanhos do copo */
+      .copo-tamanho {
+        margin-bottom: 30px;
+      }
+      
+      .tamanho-item {
+        margin-bottom: 10px;
+      }
+      
+      .tamanho-item input {
+        margin-right: 10px;
+      }
+      
+      .tamanho-item label {
+        font-size: 1.2em;
+        color: #fff;
+        cursor: pointer;
+      }
+      
+      /* Complementos, Adicionais e Frutas */
+      .complementos, .adicionais, .frutas {
+        margin-bottom: 30px;
+      }
+      
+      .complemento-item, .adicional-item, .fruta-item {
+        margin-bottom: 10px;
+      }
+      
+      .complemento-item input, .adicional-item input, .fruta-item input {
+        margin-right: 10px;
+      }
+      
+      .complemento-item label, .adicional-item label, .fruta-item label {
+        font-size: 1.2em;
+        color: #fff;
+        cursor: pointer;
+      }
+      
+      @media (max-width: 768px) {
+        .menu h2 {
+          font-size: 2em;
+        }
+        .navbar .logo {
+          font-size: 2em;
+        }
+      }
+      
+      /* 
+         Container de Detalhes do Cliente
+       */
+      .cliente-detalhes {
+        display: none; /* Oculto inicialmente */
+        background: rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        margin: 20px auto 40px;
+        border-radius: 10px;
+        max-width: 800px;
+      }
+      .cliente-detalhes h2 {
+        font-family: 'Bebas Neue', cursive;
+        font-size: 2em;
+        color: #00ff00;
+        margin-bottom: 20px;
+      }
+      .cliente-detalhes label {
+        display: block;
+        font-size: 1.2em;
+        color: #fff;
+        margin-bottom: 10px;
+      }
+      .cliente-detalhes input,
+      .cliente-detalhes select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        border: none;
+      }
+      .cliente-detalhes button {
+        background: #8e44ad;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1em;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        width: 100%;
+      }
+      .cliente-detalhes button:hover {
+        background: #732d91;
+      }
+    </style>
+  </head>
+  <body>
+    <video class="background" autoplay muted loop>
+        <source src="img/fundobarca2.mp4" type="video/mp4">
+        Seu navegador não suporta o formato de vídeo.
+      </video>
+      
+    <header>
+      <nav class="navbar">
+        <h1 class="logo"><br><br><br> Vikings Food</h1>
+        <a href="cardapio.html" class="btn voltar">Voltar</a>
+      </nav>
+    </header>
+    
+    <section class="menu">
+      <h2>Monte Sua Roleta</h2>
+      <div class="menu-container">
+        <form class="menu-form">
+          <!-- Seção de Tamanho do Copo -->
+          <fieldset>
+            <legend><h3>TAMANHO</h3></legend>
+            
+            <label>
+              <input type="radio" name="tamanho" value="Roleta" data-preco="29.90" data-max-complementos="2" />
+              Roleta de Açaí 
+              <br />
+              <span style="font-size: smaller; color: yellow;">29,90</span>
+            </label>
+            
+          </fieldset>
+          
+          <!-- Complementos -->
+          <fieldset>
+            <legend><h3>Complementos</h3></legend>
+            <label class="complemento-item">
+              <input type="checkbox" name="complementos" value="Leite em pó" data-preco="0.00" />
+              Leite em pó
+            </label>
+            <label class="complemento-item">
+              <input type="checkbox" name="complementos" value="Paçoca" data-preco="0.00" />
+              Paçoca
+            </label>
+            <label class="complemento-item">
+              <input type="checkbox" name="complementos" value="Amendoim" data-preco="0.00" />
+              Amendoim
+            </label>
+            <label class="complemento-item">
+              <input type="checkbox" name="complementos" value="Sucrilhos" data-preco="0.00" />
+              Sucrilhos
+            </label>
+            <label class="complemento-item">
+              <input type="checkbox" name="complementos" value="Granola" data-preco="0.00" />
+              Granola
+            </label>
+            <label class="complemento-item">
+              <input type="checkbox" name="complementos" value="Leite condensado" data-preco="0.00" />
+              Leite condensado
+            </label>
+            <label class="complemento-item">
+              <input type="checkbox" name="complementos" value="Flocos de arroz" data-preco="0.00" />
+              Flocos de Arroz
+            </label>
+            <br>
+            <span style="font-size: medium; color: yellow;">Escolha até 2 Adicionais, sem custo extra</span>
+            <br> <br>
+            
+            <label>
+               
+              <input type="checkbox"  />
+              Nutella 
+            </label>
+            <label>
+              <input type="checkbox"  />
+              Beijinho 
+            </label>
+            <label>
+              <input type="checkbox"  />
+              Brigadeiro de morango 
+            </label>
+            <label>
+              <input type="checkbox" />
+              Doce de leite 
+            </label>
+            <label>
+              <input type="checkbox" />
+              Chantilly 
+            </label>
+            <label>
+              <input type="checkbox"  />
+              Chocobol 
+            </label>
+            <label>
+              <input type="checkbox" />
+              Kitkat 
+            </label>
+            <label>
+              <input type="checkbox" />
+              Granulado
+            </label>
+            <label>
+              <input type="checkbox" />
+              Coco 
+            </label>
+            <br> 
+            <span style="font-size: small; color: yellow;">Caso escolha +2 acima, será cobrado o valor do adicional listado a baixo</span>
+            
+          </fieldset>
+          
+          <!-- Adicionais -->
+          <fieldset>
+            <legend><h3>Adicionais Pagos</h3></legend>
+            <label>
+                <span style="font-size: medium; color: rgb(179, 255, 0);">Deixe sua Barca ainda mais perfeita</span>
+            
+                <br> <br>
+              <input type="checkbox" name="adicionais" value="nutella" data-preco="4.00" />
+              Nutella - 4,00
+            </label>
+            <label>
+              <input type="checkbox" name="adicionais" value="beijinho" data-preco="4.00" />
+              Beijinho - 4,00
+            </label>
+            <label>
+              <input type="checkbox" name="adicionais" value="brigadeiro de morango" data-preco="4.00" />
+              Brigadeiro de morango - 4,00
+            </label>
+            <label>
+              <input type="checkbox" name="adicionais" value="doce de leite" data-preco="3.00" />
+              Doce de leite - 3,00
+            </label>
+            <label>
+              <input type="checkbox" name="adicionais" value="chantilly" data-preco="2.00" />
+              Chantilly - 2,00
+            </label>
+            <label>
+              <input type="checkbox" name="adicionais" value="chocobol" data-preco="2.00" />
+              Chocobol - 2,00
+            </label>
+            <label>
+              <input type="checkbox" name="adicionais" value="kitkat" data-preco="2.00" />
+              Kitkat - 2,00
+            </label>
+            <label>
+              <input type="checkbox" name="adicionais" value="granulado" data-preco="2.00" />
+              Granulado - 2,00
+            </label>
+            <label>
+              <input type="checkbox" name="adicionais" value="coco" data-preco="1.00" />
+              Coco - 1,00
+            </label>
+          </fieldset>
+          
+          <!-- Seção de Frutas -->
+          <fieldset>
+            <legend><h3>Selecione até 2 Frutas</h3></legend>
+            <label class="fruta-item">
+              <input type="checkbox" name="frutas" value="Banana" />
+              Banana
+            </label>
+            <label class="fruta-item">
+              <input type="checkbox" name="frutas" value="Morango" />
+              Morango
+            </label>
+            <label class="fruta-item">
+              <input type="checkbox" name="frutas" value="Kiwi" />
+              Kiwi
+            </label>
+            <label class="fruta-item">
+              <input type="checkbox" name="frutas" value="Uva" />
+              Uva
+            </label>
+            <label class="fruta-item">
+              <input type="checkbox" name="frutas" value="Manga" />
+              Manga
+            </label>
+          </fieldset>
+          
+          <!-- Resumo do Pedido -->
+          <section class="resumo">
+            <h3>Resumo do Pedido</h3>
+            <p>
+              <strong>Açaí Selecionado:</strong>
+              <span id="resumo-acai">0,00</span>
+            </p>
+            <p>
+              <strong>Complementos Selecionados:</strong>
+              <span id="resumo-complementos">0,00</span>
+            </p>
+            <p>
+              <strong>Adicionais Selecionados:</strong>
+              <span id="resumo-adicionais">0,00</span>
+            </p>
+            <p>
+              <strong>Total:</strong> R$ <span id="total">0,00</span>
+            </p>
+          </section>
+          
+          <!-- Botão Finalizar Pedido -->
+          <button type="button" id="finalizarPedidoBtn" class="btn">Finalizar Pedido</button>
+        </form>
+      </div>
+    </section>
+    
+    <!-- Container para detalhes do cliente (oculto inicialmente) -->
+    <section class="cliente-detalhes" id="clienteDetalhes">
+      <h2>Detalhes do Pedido</h2>
+      <label for="nomeCliente">Nome do cliente:</label>
+      <input type="text" id="nomeCliente" placeholder="Nome completo" required>
+      
+      <label for="enderecoEntrega">Endereço de entrega:</label>
+      <input type="text" id="enderecoEntrega" placeholder="Endereço completo" required>
+      
+      <label for="formaPagamento">Forma de pagamento:</label>
+      <select id="formaPagamento">
+        <option value="cartao">Cartão</option>
+        <option value="pix">PIX</option>
+        <option value="dinheiro">Dinheiro</option>
+      </select>
+      
+      <!-- number para text para permitir vírgula -->
+      <label for="troco">Troco (se pagamento em dinheiro):</label>
+      <input type="text" id="troco" placeholder="Troco para? " disabled>
+      
+      <button type="button" id="confirmarCompraBtn">Confirmar Compra</button>
+    </section>
+    
+    <footer>
+      <p>
+        &copy; 2025 Direitos Reservados à
+        <a href="https://www.instagram.com/vikings_foodoficial" target="_blank">@vikings_foodoficial</a>
+      </p>
+    </footer>
+    
+    <script>
+     
+      const form = document.querySelector(".menu-form");
+      const resumoAcai = document.getElementById("resumo-acai");
+      const resumoComplementos = document.getElementById("resumo-complementos");
+      const resumoAdicionais = document.getElementById("resumo-adicionais");
+      const totalElement = document.getElementById("total");
+      
+      
+      function atualizarResumo() {
+        let acaiPreco = 0;
+        let complementosPreco = 0;
+        let adicionaisPreco = 0;
+        
+        const tamanhoSelecionado = form.querySelector('input[name="tamanho"]:checked');
+        if (tamanhoSelecionado) {
+          acaiPreco = parseFloat(tamanhoSelecionado.getAttribute("data-preco"));
+        }
+        
+        const complementosSelecionados = form.querySelectorAll('input[name="complementos"]:checked');
+        complementosSelecionados.forEach((comp) => {
+          complementosPreco += parseFloat(comp.getAttribute("data-preco"));
+        });
+        
+        const adicionaisSelecionados = form.querySelectorAll('input[name="adicionais"]:checked');
+        adicionaisSelecionados.forEach((adic) => {
+          adicionaisPreco += parseFloat(adic.getAttribute("data-preco"));
+        });
+        
+        resumoAcai.textContent = acaiPreco.toFixed(2);
+        resumoComplementos.textContent = complementosPreco.toFixed(2);
+        resumoAdicionais.textContent = adicionaisPreco.toFixed(2);
+        totalElement.textContent = (acaiPreco + complementosPreco + adicionaisPreco).toFixed(2);
+      }
+      
+      // Limitar conforme o tamanho escolhido
+      function checkComplementosLimit() {
+        const tamanhoSelecionado = form.querySelector('input[name="tamanho"]:checked');
+        const complementosCheckboxes = form.querySelectorAll('input[name="complementos"]');
+        
+        if (!tamanhoSelecionado) {
+        
+          complementosCheckboxes.forEach(cb => cb.disabled = false);
+          return;
+        }
+        
+        const max = parseInt(tamanhoSelecionado.getAttribute("data-max-complementos"));
+        let checkedCount = 0;
+        complementosCheckboxes.forEach(checkbox => {
+          if (checkbox.checked) {
+            checkedCount++;
+          }
+        });
+        
+        // Se atingir ou ultrapassar o limite, desabilita os não selecionados
+        if (checkedCount >= max) {
+          complementosCheckboxes.forEach(checkbox => {
+            if (!checkbox.checked) {
+              checkbox.disabled = true;
+            }
+          });
+        } else {
+          complementosCheckboxes.forEach(checkbox => {
+            checkbox.disabled = false;
+          });
+        }
+        
+        // Se o número de selecionados for maior que o permitido, desmarca os extras
+        if (checkedCount > max) {
+          let count = 0;
+          complementosCheckboxes.forEach(checkbox => {
+            if (checkbox.checked) {
+              count++;
+              if (count > max) {
+                checkbox.checked = false;
+              }
+            }
+          });
+          alert("Você selecionou mais complementos do que o permitido para este tamanho. Os complementos extras foram desmarcados.");
+        }
+      }
+      
+      // Limita a seleção de frutas a 2
+      function checkFrutasLimit() {
+        const maxFruits = 2;
+        const frutasCheckboxes = form.querySelectorAll('input[name="frutas"]');
+        let checkedCount = 0;
+        frutasCheckboxes.forEach(checkbox => {
+          if (checkbox.checked) {
+            checkedCount++;
+          }
+        });
+        
+        if (checkedCount >= maxFruits) {
+          frutasCheckboxes.forEach(checkbox => {
+            if (!checkbox.checked) {
+              checkbox.disabled = true;
+            }
+          });
+        } else {
+          frutasCheckboxes.forEach(checkbox => {
+            checkbox.disabled = false;
+          });
+        }
+      }
+      
+      // Ao alterar qualquer campo, atualiza o resumo e verifica os limites
+      form.addEventListener("change", () => {
+        atualizarResumo();
+        checkComplementosLimit();
+        checkFrutasLimit();
+      });
+      
+      // Exibe o container de detalhes do cliente ao clicar em "Finalizar Pedido"
+      const finalizarPedidoBtn = document.getElementById("finalizarPedidoBtn");
+      const clienteDetalhes = document.getElementById("clienteDetalhes");
+      
+      finalizarPedidoBtn.addEventListener("click", () => {
+        clienteDetalhes.style.display = "block";
+      });
+      
+      // Habilita/desabilita o campo de troco conforme a forma de pagamento
+      const formaPagamento = document.getElementById("formaPagamento");
+      const trocoInput = document.getElementById("troco");
+      
+      formaPagamento.addEventListener("change", () => {
+        if (formaPagamento.value === "dinheiro") {
+          trocoInput.disabled = false;
+        } else {
+          trocoInput.disabled = true;
+          trocoInput.value = "";
+        }
+      });
+      
+      // Ao confirmar a compra, os dados são enviados via WhatsApp
+      const confirmarCompraBtn = document.getElementById("confirmarCompraBtn");
+      confirmarCompraBtn.addEventListener("click", () => {
+        // Dados do cliente
+        const nomeCliente = document.getElementById("nomeCliente").value;
+        const enderecoEntrega = document.getElementById("enderecoEntrega").value;
+        const pagamento = formaPagamento.value;
+        const troco = trocoInput.value;
+        
+        // Dados do açaí
+        let acaiDescricao = "";
+        let acaiPreco = 0;
+        const tamanhoSelecionado = form.querySelector('input[name="tamanho"]:checked');
+        if(tamanhoSelecionado) {
+          acaiDescricao = tamanhoSelecionado.value;
+          acaiPreco = tamanhoSelecionado.getAttribute("data-preco");
+        }
+        
+        // Complementos selecionados
+        let complementosSelecionados = [];
+        form.querySelectorAll('input[name="complementos"]:checked').forEach((comp) => {
+          complementosSelecionados.push(comp.value);
+        });
+        
+        // Adicionais selecionados
+        let adicionaisSelecionados = [];
+        form.querySelectorAll('input[name="adicionais"]:checked').forEach((adic) => {
+          adicionaisSelecionados.push(adic.value);
+        });
+        
+        // Frutas selecionadas
+        let frutasSelecionadas = [];
+        form.querySelectorAll('input[name="frutas"]:checked').forEach((fruta) => {
+          frutasSelecionadas.push(fruta.value);
+        });
+        
+        // Monta a mensagem para o WhatsApp (usa %0A para quebra de linha)
+        let message = "Olá, gostaria de pedir 😀.%0A";
+        message += "Detalhes do Pedido:%0A";
+        message += "Nome: " + nomeCliente + "%0A";
+        message += "Endereço: " + enderecoEntrega + "%0A";
+        message += "Forma de Pagamento: " + pagamento + "%0A";
+        if (pagamento === "dinheiro" && troco.trim() !== "") {
+          message += "Troco para: R$ " + troco + "%0A";
+        }
+        message += "%0ADetalhes do Açaí:%0A";
+        message += "Tamanho: " + acaiDescricao + " (R$ " + acaiPreco + ")%0A";
+        message += "Complementos: " + (complementosSelecionados.length > 0 ? complementosSelecionados.join(", ") : "Nenhum") + "%0A";
+        message += "Adicionais: " + (adicionaisSelecionados.length > 0 ? adicionaisSelecionados.join(", ") : "Nenhum") + "%0A";
+        message += "Frutas: " + (frutasSelecionadas.length > 0 ? frutasSelecionadas.join(", ") : "Nenhuma") + "%0A";
+        message += "%0ATotal: R$ " + totalElement.textContent;
+        
+        // Número do WhatsApp (incluindo DDI)
+        const phone = "+5532985103091";
+        const whatsappUrl = "https://api.whatsapp.com/send?phone=" + phone + "&text=" + message;
+        
+        window.open(whatsappUrl, "_blank");
+      });
+      
+      // Chamada inicial para atualizar os valores e limites
+      atualizarResumo();
+      checkComplementosLimit();
+      checkFrutasLimit();
+    </script>
+  </body>
 </html>

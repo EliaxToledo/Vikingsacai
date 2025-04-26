@@ -76,6 +76,32 @@ body {
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
+  
+  /* FADE-IN aplicado */
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+}
+
+/* Delays individuais para os vídeos */
+.menu-item:nth-child(1) video {
+  animation-delay: 0s;
+}
+
+.menu-item:nth-child(2) video {
+  animation-delay: 0.5s;
+}
+
+.menu-item:nth-child(3) video {
+  animation-delay: 1s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .menu-item .content {
@@ -90,11 +116,23 @@ body {
 }
 
 .menu-item h3 {
-  font-size: 1.8em;
-  margin: 0;
-  color: #00ff00;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
-  width: 100%;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2.2em;
+  color: #ffffff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+  background: rgba(13, 141, 13, 0.7); /* leve fundo verde translúcido */
+  padding: 10px 20px;
+  border-radius: 30px;
+  display: inline-block;
+  margin: 0 auto;
+  position: relative;
+  bottom: 0;
+  transition: all 0.3s ease;
+}
+
+.menu-item:hover h3 {
+  background: rgba(0, 255, 0, 0.9);
+  transform: scale(1.05);
 }
 
 .navbar a.btn.voltar {
